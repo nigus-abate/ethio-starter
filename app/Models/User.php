@@ -64,10 +64,10 @@ class User extends Authenticatable
         return \App\Helpers\AvatarHelper::generateSvgLogo($this->name);
     }
 
-    public function canBeImpersonated(): bool
+    public function canBeImpersonated(User $impersonator): bool
     {
-        return !$this->hasRole('Admin') || 
-            auth()->user()->hasRole('Admin');
+        return $impersonator->hasRole('admin') && !$this->hasRole('admin');
+        //return !$this->hasRole('Admin') || auth()->user()->hasRole('Admin');
     }
 
     public function canImpersonate(): bool

@@ -1,8 +1,5 @@
-![Build Status](https://github.com/nigus-abate/laravel-starter/actions/workflows/ci.yml/badge.svg)
-![License](https://img.shields.io/github/license/nigus-abate/laravel-starter)
-
-![Build Status](https://github.com/nigus-abate/laravel-starter/actions/workflows/ci.yml/badge.svg)
-![License](https://img.shields.io/github/license/nigus-abate/laravel-starter.svg)
+![Build Status](https://github.com/nigus-abate/ethio-starter/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/github/license/nigus-abate/ethio-starter.svg)
 ![Laravel](https://img.shields.io/badge/Laravel-12+-red)
 
 # ⚙️ Laravel Starter Kit with 2FA, Roles & Permissions
@@ -92,8 +89,8 @@ A robust Laravel 12+ starter boilerplate packed with:
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/nigus-abate/laravel-starter.git
-cd laravel-starter
+git clone https://github.com/nigus-abate/ethio-starter.git
+cd ethio-starter
 
 composer install
 cp .env.example .env
