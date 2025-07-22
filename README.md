@@ -1,5 +1,5 @@
 ![Build Status](https://github.com/nigus-abate/ethio-starter/actions/workflows/ci.yml/badge.svg)
-![License](https://img.shields.io/github/license/nigus-abate/ethio-starter.svg)
+![License](https://img.shields.io/github/license/nigus-abate/laravel-starter.svg)
 ![Laravel](https://img.shields.io/badge/Laravel-12+-red)
 
 # ⚙️ Laravel Starter Kit with 2FA, Roles & Permissions
