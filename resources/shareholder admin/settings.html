@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShareTrack | Shareholder Management</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3 class="brand">
+                    <span class="logo-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </span>
+                    <span class="logo-text">ShareTrack</span>
+                </h3>
+                <button class="btn-close-sidebar">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-person-vcard"></i>
+                        <span>Shareholders</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-pie-chart"></i>
+                        <span>Ownership</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-cash-stack"></i>
+                        <span>Dividends</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-envelope"></i>
+                        <span>Communications</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <!-- In the sidebar-nav, add before the Settings menu item: -->
+<li class="nav-item has-submenu">
+    <a href="#" class="nav-link">
+        <i class="bi bi-shield-lock"></i>
+        <span>Security</span>
+        <i class="bi bi-chevron-right"></i>
+    </a>
+    <ul class="submenu">
+        <li class="nav-item">
+            <a href="#" class="nav-link">Users</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Roles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Permissions</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Audit Logs</a>
+        </li>
+    </ul>
+</li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <div class="theme-toggle">
+                    <span>Dark Mode</span>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="themeToggle">
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Admin User</span>
+                        <span class="user-role">System Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="top-nav">
+                <div class="nav-left">
+                    <button class="btn-toggle-sidebar">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button class="btn-notification">
+                        <i class="bi bi-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <button class="btn-message">
+                        <i class="bi bi-envelope"></i>
+                        <span class="badge">5</span>
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn-user-dropdown" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <span class="user-name">Admin User</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i> Settings</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-question-circle me-2"></i> Help</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+    <div class="page-header">
+        <h1>System Settings</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Settings</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="row">
+        <!-- Left Navigation -->
+        <div class="col-lg-3">
+            <div class="settings-nav card">
+                <div class="list-group list-group-flush">
+                    <a href="#general" class="list-group-item list-group-item-action active" data-bs-toggle="tab">
+                        <i class="bi bi-gear me-2"></i> General Settings
+                    </a>
+                    <a href="#notifications" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="bi bi-bell me-2"></i> Notifications
+                    </a>
+                    <a href="#security" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="bi bi-shield-lock me-2"></i> Security
+                    </a>
+                    <a href="#users" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="bi bi-people me-2"></i> User Management
+                    </a>
+                    <a href="#api" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="bi bi-plug me-2"></i> API Integration
+                    </a>
+                    <a href="#backup" class="list-group-item list-group-item-action" data-bs-toggle="tab">
+                        <i class="bi bi-cloud-arrow-down me-2"></i> Backup & Restore
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="col-lg-9">
+            <div class="tab-content">
+                <!-- General Settings Tab -->
+                <div class="tab-pane fade show active" id="general">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">General Settings</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Company Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" value="ShareTrack Inc.">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Timezone</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select">
+                                            <option>(UTC-05:00) Eastern Time</option>
+                                            <option selected>(UTC-08:00) Pacific Time</option>
+                                            <option>(UTC) Greenwich Mean Time</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Date Format</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select">
+                                            <option>MM/DD/YYYY</option>
+                                            <option selected>DD/MM/YYYY</option>
+                                            <option>YYYY-MM-DD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Default Records Per Page</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select">
+                                            <option>10</option>
+                                            <option selected>25</option>
+                                            <option>50</option>
+                                            <option>100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-9 offset-sm-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                            <label class="form-check-label" for="emailNotifications">
+                                                Enable email notifications
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9 offset-sm-3">
+                                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="tab-pane fade" id="notifications">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Notification Preferences</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <h6 class="mb-3">System Notifications</h6>
+                                <div class="row mb-3">
+                                    <label class="col-sm-6 col-form-label">New shareholder registration</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select">
+                                            <option>Immediate</option>
+                                            <option selected>Daily Digest</option>
+                                            <option>Weekly Summary</option>
+                                            <option>Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-6 col-form-label">Dividend payments processed</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select">
+                                            <option selected>Immediate</option>
+                                            <option>Daily Digest</option>
+                                            <option>Weekly Summary</option>
+                                            <option>Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <label class="col-sm-6 col-form-label">Upcoming shareholder meetings</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select">
+                                            <option>Immediate</option>
+                                            <option selected>Daily Digest</option>
+                                            <option>Weekly Summary</option>
+                                            <option>Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <h6 class="mb-3">Security Alerts</h6>
+                                <div class="row mb-3">
+                                    <label class="col-sm-6 col-form-label">Failed login attempts</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select">
+                                            <option selected>Immediate</option>
+                                            <option>Daily Digest</option>
+                                            <option>Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-6 col-form-label">Password changes</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-select">
+                                            <option selected>Immediate</option>
+                                            <option>Daily Digest</option>
+                                            <option>Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 offset-sm-6">
+                                        <button type="submit" class="btn btn-primary">Update Preferences</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="tab-pane fade" id="security">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Security Settings</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="row mb-3">
+                                    <label class="col-sm-4 col-form-label">Password Requirements</label>
+                                    <div class="col-sm-8">
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="requireUpperCase" checked>
+                                            <label class="form-check-label" for="requireUpperCase">
+                                                Require uppercase letters
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="requireNumbers" checked>
+                                            <label class="form-check-label" for="requireNumbers">
+                                                Require numbers
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="requireSpecialChars">
+                                            <label class="form-check-label" for="requireSpecialChars">
+                                                Require special characters
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-4 col-form-label">Minimum Password Length</label>
+                                    <div class="col-sm-8">
+                                        <input type="number" class="form-control" value="8" min="6" max="20">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-4 col-form-label">Password Expiration</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-select">
+                                            <option value="30">30 days</option>
+                                            <option value="60" selected>60 days</option>
+                                            <option value="90">90 days</option>
+                                            <option value="0">Never</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-4 col-form-label">Failed Login Attempts</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" value="5" min="1" max="10">
+                                            <span class="input-group-text">before lockout</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-4 col-form-label">Lockout Duration</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-select">
+                                            <option value="5">5 minutes</option>
+                                            <option value="15" selected>15 minutes</option>
+                                            <option value="30">30 minutes</option>
+                                            <option value="60">1 hour</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-8 offset-sm-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="enable2FA">
+                                            <label class="form-check-label" for="enable2FA">
+                                                Enable Two-Factor Authentication
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8 offset-sm-4">
+                                        <button type="submit" class="btn btn-primary">Update Security Settings</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Management Tab -->
+                <div class="tab-pane fade" id="users">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">User Management</h5>
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="bi bi-plus"></i> Add User
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Last Active</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3">
+                                                        <i class="bi bi-person-circle"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Admin User</h6>
+                                                        <small class="text-muted">System Administrator</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>admin@sharetrack.com</td>
+                                            <td><span class="badge bg-primary">Administrator</span></td>
+                                            <td>Today, 09:42</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3">
+                                                        <i class="bi bi-person-circle"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Finance Manager</h6>
+                                                        <small class="text-muted">Finance Department</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>finance@sharetrack.com</td>
+                                            <td><span class="badge bg-accent">Manager</span></td>
+                                            <td>Yesterday, 14:30</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3">
+                                                        <i class="bi bi-person-circle"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Analyst User</h6>
+                                                        <small class="text-muted">Data Team</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>analyst@sharetrack.com</td>
+                                            <td><span class="badge bg-info">Analyst</span></td>
+                                            <td>2 days ago</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-sm me-3">
+                                                        <i class="bi bi-person-circle"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Read Only</h6>
+                                                        <small class="text-muted">Audit Team</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>audit@sharetrack.com</td>
+                                            <td><span class="badge bg-secondary">Viewer</span></td>
+                                            <td>1 week ago</td>
+                                            <td><span class="badge bg-warning">Inactive</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-outline-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Integration Tab -->
+                <div class="tab-pane fade" id="api">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">API Integration</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle me-2"></i> API access allows external systems to interact with ShareTrack securely.
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6>API Status</h6>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="apiStatus" checked>
+                                    <label class="form-check-label" for="apiStatus">Enable API Access</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6>API Keys</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Key Name</th>
+                                                <th>Created</th>
+                                                <th>Last Used</th>
+                                                <th>Permissions</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Finance System</td>
+                                                <td>15 Jan 2023</td>
+                                                <td>Today, 08:30</td>
+                                                <td>Read Only</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reporting Tool</td>
+                                                <td>28 Feb 2023</td>
+                                                <td>Yesterday, 22:15</td>
+                                                <td>Read Only</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary me-1">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-outline-danger">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button class="btn btn-sm btn-primary mt-2">
+                                    <i class="bi bi-plus"></i> Generate New API Key
+                                </button>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <h6>API Documentation</h6>
+                                <p>For detailed API documentation and usage examples, please visit our <a href="#">developer portal</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backup & Restore Tab -->
+                <div class="tab-pane fade" id="backup">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Backup & Restore</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning">
+                                <i class="bi bi-exclamation-triangle me-2"></i> Regular backups are essential for data protection.
+                            </div>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-cloud-arrow-up display-5 text-primary mb-3"></i>
+                                            <h5>Create Backup</h5>
+                                            <p class="text-muted">Generate a complete system backup including all shareholder data.</p>
+                                            <button class="btn btn-primary">
+                                                <i class="bi bi-download me-2"></i> Backup Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card bg-light">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-cloud-arrow-down display-5 text-accent mb-3"></i>
+                                            <h5>Restore Backup</h5>
+                                            <p class="text-muted">Upload a previous backup file to restore your system.</p>
+                                            <button class="btn btn-accent">
+                                                <i class="bi bi-upload me-2"></i> Restore
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h6>Backup Schedule</h6>
+                            <form>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Automatic Backups</label>
+                                    <div class="col-sm-9">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="autoBackup" checked>
+                                            <label class="form-check-label" for="autoBackup">Enable automatic backups</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Frequency</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select">
+                                            <option>Daily</option>
+                                            <option selected>Weekly</option>
+                                            <option>Monthly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Backup Retention</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select">
+                                            <option>7 days</option>
+                                            <option selected>30 days</option>
+                                            <option>90 days</option>
+                                            <option>1 year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-9 offset-sm-3">
+                                        <button type="submit" class="btn btn-primary">Save Backup Settings</button>
+                                    </div>
+                                </div>
+                            </form>
+                            
+                            <div class="mt-4">
+                                <h6>Recent Backups</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Type</th>
+                                                <th>Size</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Today, 02:00</td>
+                                                <td>Automatic</td>
+                                                <td>45 MB</td>
+                                                <td><span class="badge bg-success">Completed</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="bi bi-download"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Yesterday, 02:00</td>
+                                                <td>Automatic</td>
+                                                <td>44 MB</td>
+                                                <td><span class="badge bg-success">Completed</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="bi bi-download"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>7 days ago, 02:00</td>
+                                                <td>Automatic</td>
+                                                <td>42 MB</td>
+                                                <td><span class="badge bg-success">Completed</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary">
+                                                        <i class="bi bi-download"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="mb-0">© 2023 ShareTrack. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end">
+                            <p class="mb-0">v2.4.1</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    
+    <script>
+              
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved user preference, if any, on load
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        
+        if (currentTheme === 'dark') {
+            themeToggle.checked = true;
+        }
+        
+        // Listen for toggle changes
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Sidebar toggle functionality
+        const sidebarToggle = document.querySelector('.btn-toggle-sidebar');
+        const closeSidebar = document.querySelector('.btn-close-sidebar');
+        const sidebar = document.getElementById('sidebar');
+        
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('collapsed');
+        });
+        
+        closeSidebar.addEventListener('click', function() {
+            sidebar.classList.add('collapsed');
+        });
+
+        // Add this to your existing script section
+        document.querySelectorAll('.nav-item.has-submenu > a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

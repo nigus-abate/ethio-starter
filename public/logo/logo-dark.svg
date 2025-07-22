@@ -1,0 +1,13 @@
+<svg width="280" height="70" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <g transform="translate(10, 10)">
+    <path d="M20 5 L35 10 L35 25 L20 20 Z" fill="#ff4c3b"/>
+    <path d="M20 5 L5 10 L5 25 L20 20 Z" fill="#e5422f"/>
+    <path d="M5 10 L20 15 L35 10 L20 5 Z" fill="#c3302b"/>
+  </g>
+  <text x="60" y="38" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700" fill="#fff">
+    Laravel Starter
+  </text>
+  <text x="60" y="60" font-family="Segoe UI, sans-serif" font-size="14" fill="#ccc">
+    Kickstart your Laravel admin panel with best practices
+  </text>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Laravel-inspired cube style icon -->
+  <g transform="translate(5, 5)">
+    <path d="M20 5 L35 10 L35 25 L20 20 Z" fill="#f72c1f"/>
+    <path d="M20 5 L5 10 L5 25 L20 20 Z" fill="#d21f16"/>
+    <path d="M5 10 L20 15 L35 10 L20 5 Z" fill="#b71c1c"/>
+  </g>
+
+  <!-- Laravel Starter text -->
+  <text x="60" y="38" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700" fill="#333">
+    Laravel Starter
+  </text>
+</svg>

@@ -1,0 +1,38 @@
+<svg width="280" height="70" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <style>
+    :root {
+      --logo-primary: #f72c1f;
+      --logo-secondary: #d21f16;
+      --logo-tertiary: #b71c1c;
+      --logo-text: #333;
+      --logo-subtext: #555;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --logo-primary: #ff4c3b;
+        --logo-secondary: #e5422f;
+        --logo-tertiary: #c3302b;
+        --logo-text: #fff;
+        --logo-subtext: #ccc;
+      }
+    }
+  </style>
+
+  <!-- Laravel cube -->
+  <g transform="translate(10, 10)">
+    <path d="M20 5 L35 10 L35 25 L20 20 Z" fill="var(--logo-primary)" />
+    <path d="M20 5 L5 10 L5 25 L20 20 Z" fill="var(--logo-secondary)" />
+    <path d="M5 10 L20 15 L35 10 L20 5 Z" fill="var(--logo-tertiary)" />
+  </g>
+
+  <!-- Main Title -->
+  <text x="60" y="38" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700" fill="var(--logo-text)">
+    Laravel Starter
+  </text>
+
+  <!-- Tagline -->
+  <text x="60" y="60" font-family="Segoe UI, sans-serif" font-size="14" fill="var(--logo-subtext)">
+    Kickstart your Laravel admin panel
+  </text>
+</svg>

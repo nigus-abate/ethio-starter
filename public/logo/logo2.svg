@@ -1,0 +1,26 @@
+<svg width="280" height="70" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <g transform="translate(10, 10)">
+    <path d="M20 5 L35 10 L35 25 L20 20 Z" fill="#f72c1f"/>
+    <path d="M20 5 L5 10 L5 25 L20 20 Z" fill="#d21f16"/>
+    <path d="M5 10 L20 15 L35 10 L20 5 Z" fill="#b71c1c"/>
+  </g>
+  <text x="60" y="38" font-family="Segoe UI, sans-serif" font-size="24" font-weight="700" fill="#333">
+    Laravel Starter
+  </text>
+  <text x="60" y="60" font-family="Segoe UI, sans-serif" font-size="14" fill="#555">
+    Kickstart your Laravel admin panel with best practices
+  </text>
+</svg>
+
+
+<!--
+Dark Mode Version
+
+Just update fill colors:
+
+    fill="#333" → fill="#fff" (text)
+
+    fill="#555" → fill="#ccc" (tagline)
+
+    Optional: lighten cube colors 
+ -->

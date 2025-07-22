@@ -1,0 +1,12 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Background Circle (Optional) -->
+  <circle cx="30" cy="30" r="28" fill="#f72c1f" stroke="#d21f16" stroke-width="2" />
+
+  <!-- L icon -->
+  <path d="M25 18h6v18h12v6H25V18z" fill="#fff" />
+
+  <!-- App Name -->
+  <text x="60" y="38" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold" fill="#333">
+    Laravel Starter
+  </text>
+</svg>
