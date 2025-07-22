@@ -21,6 +21,11 @@ jobs:
         extensions: mbstring, pdo, mysql
         coverage: none
 
+    - name: Create SQLite DB
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
+
     - name: Install dependencies
       run: |
         composer install --no-progress --prefer-dist --no-interaction
