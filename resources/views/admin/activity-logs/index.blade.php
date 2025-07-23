@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row justify-content-center">
+        <div class="col-md-12">
 <div class="page-header d-flex justify-content-between align-items-center">
     <h1>Activity Logs</h1>
     <div class="d-flex gap-2">
@@ -39,7 +41,7 @@
         @method('DELETE')
 
         @can('delete activity logs')
-        <div class="card-header d-flex justify-content-between align-items-center bg-light">
+        <div class="card-header d-flex justify-content-between align-items-center bg-light-subtle">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="select-all">
                 <label class="form-check-label small text-muted" for="select-all">
@@ -125,7 +127,7 @@
                                 <i class="fas fa-eye"></i>
                             </button>
                             <div class="collapse" id="properties-{{ $log->id }}">
-                                <pre class="small p-2 bg-light rounded mt-2">{{ json_encode($log->properties, JSON_PRETTY_PRINT) }}</pre>
+                                <pre class="small p-2 bg-light-subtle rounded mt-2">{{ json_encode($log->properties, JSON_PRETTY_PRINT) }}</pre>
                             </div>
                             @else
                             <span class="text-muted">-</span>
@@ -148,11 +150,13 @@
 
         {{-- Pagination --}}
         @if($logs->hasPages())
-        <div class="card-footer bg-light">
+        <div class="card-footer bg-light-subtle">
             {{ $logs->links() }}
         </div>
         @endif
     </form>
+</div>
+</div>
 </div>
 @endsection
 

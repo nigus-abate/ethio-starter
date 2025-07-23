@@ -4,17 +4,23 @@
 
 @section('content')
 <div class="page-header">
-    <h1>Dashboard</h1>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-        </ol>
-    </nav>
+    <div>
+        <h1>Dashboard</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-outline-primary">Export</button>
+        <button class="btn btn-primary">Generate Report</button>
+    </div>
 </div>
 
 <!-- Stats Cards -->
 <div class="row stats-row mb-4">
-    <div class="col-md-6 col-lg-4 col-xl-2">
+    <div class="col-md-6 col-lg-3">
         <div class="stat-card">
             <div class="stat-icon bg-primary">
                 <i class="fas fa-users"></i>
@@ -23,9 +29,12 @@
                 <h3>{{ $stats['total_users'] }}</h3>
                 <p>Total Users</p>
             </div>
+            <div class="stat-growth success">
+                <i class="fas fa-arrow-up"></i> 12.5%
+            </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-xl-2">
+    <div class="col-md-6 col-lg-3">
         <div class="stat-card">
             <div class="stat-icon bg-info">
                 <i class="fas fa-user-shield"></i>
@@ -34,55 +43,102 @@
                 <h3>{{ $stats['admin_count'] }}</h3>
                 <p>Admins</p>
             </div>
+            <div class="stat-growth success">
+                <i class="fas fa-arrow-up"></i> 5.2%
+            </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-xl-2">
+    <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon bg-accent">
+            <div class="stat-icon bg-success">
                 <i class="fas fa-user"></i>
             </div>
             <div class="stat-info">
                 <h3>{{ $stats['regular_count'] }}</h3>
                 <p>Regular Users</p>
             </div>
+            <div class="stat-growth success">
+                <i class="fas fa-arrow-up"></i> 8.7%
+            </div>
         </div>
     </div>
-    <div class="col-md-6 col-lg-4 col-xl-2">
+    <div class="col-md-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon bg-success">
+            <div class="stat-icon bg-warning">
                 <i class="fas fa-database"></i>
             </div>
             <div class="stat-info">
                 <h3>{{ $stats['completed_backups'] }}</h3>
                 <p>Completed Backups</p>
             </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-2">
-        <div class="stat-card">
-            <div class="stat-icon bg-warning">
-                <i class="fas fa-tasks"></i>
-            </div>
-            <div class="stat-info">
-                <h3>{{ $stats['pending_jobs'] }}</h3>
-                <p>Pending Jobs</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-lg-4 col-xl-2">
-        <div class="stat-card">
-            <div class="stat-icon bg-danger">
-                <i class="fas fa-exclamation-circle"></i>
-            </div>
-            <div class="stat-info">
-                <h3>{{ $stats['failed_jobs'] }}</h3>
-                <p>Failed Jobs</p>
+            <div class="stat-growth danger">
+                <i class="fas fa-arrow-down"></i> 3.1%
             </div>
         </div>
     </div>
 </div>
 
 <div class="row">
+    <!-- User Growth Chart -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5>User Growth</h5>
+                <div class="card-actions">
+                    <select class="form-select form-select-sm" style="width: 120px;">
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                        <option selected>Last 90 Days</option>
+                        <option>This Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="userGrowthChart" class="chart-container"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- System Status -->
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>System Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Storage</span>
+                        <span>65% used</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Memory</span>
+                        <span>42% used</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 42%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>CPU</span>
+                        <span>28% used</span>
+                    </div>
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 28%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
     <!-- Latest Users -->
     <div class="col-lg-6">
         <div class="card">
@@ -108,10 +164,11 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="avatar-sm me-3">
-                                                <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                                <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}">
                                             </div>
                                             <div>
                                                 <h6 class="mb-0">{{ $user->name }}</h6>
+                                                <small class="text-muted">{{ $user->roles->first()->name ?? 'User' }}</small>
                                             </div>
                                         </div>
                                     </td>
@@ -209,3 +266,48 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<!-- ApexCharts -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.css">
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.35.0/dist/apexcharts.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const chartOptions = {
+            chart: {
+                type: 'area',
+                height: '100%',
+                toolbar: { show: false },
+                zoom: { enabled: false }
+            },
+            series: [{
+                name: 'New Users',
+                data: @json($userGrowthData)
+            }],
+            xaxis: {
+                categories: @json($months),
+                labels: {
+                    style: { colors: '#64748b' }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: { colors: '#64748b' }
+                }
+            },
+            colors: ['#4361ee'],
+            grid: {
+                borderColor: '#e2e8f0',
+                strokeDashArray: 4
+            },
+            tooltip: {
+                theme: document.documentElement.getAttribute('data-bs-theme') || 'light'
+            }
+        };
+
+        const chart = new ApexCharts(document.querySelector("#userGrowthChart"), chartOptions);
+        chart.render();
+    });
+</script>
+@endpush
