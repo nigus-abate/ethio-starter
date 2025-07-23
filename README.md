@@ -4,6 +4,8 @@
 
 # ⚙️ Laravel Starter Kit with 2FA, Roles & Permissions
 
+<img width="1349" height="653" alt="Screenshot 2025-07-23 at 03-59-18 Laravel Starter Dashboard" src="https://github.com/user-attachments/assets/b3e5965e-6de2-4877-8e7c-be8be114ea36" />
+
 A robust Laravel 12+ starter boilerplate packed with:
 
 - ✅ **Two-Factor Authentication (2FA)**
