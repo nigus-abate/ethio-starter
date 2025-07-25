@@ -16,7 +16,7 @@
         <div class="card-body">
             @foreach($permissions as $group => $groupPermissions)
             <div class="card mb-4">
-                <div class="card-header bg-light">
+                <div class="card-header bg-light-subtle">
                     <h6 class="mb-0">{{ ucfirst($group) }}</h6>
                 </div>
                 <div class="card-body">

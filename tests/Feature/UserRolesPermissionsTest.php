@@ -58,6 +58,4 @@ class UserRolesPermissionsTest extends TestCase
 
 	    $this->assertFalse($admin->canBeImpersonated($user));
 	}
-
-
 }

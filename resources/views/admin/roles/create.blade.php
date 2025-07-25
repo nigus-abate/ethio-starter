@@ -29,7 +29,7 @@
                             
                             @foreach($permissions as $group => $groupPermissions)
                             <div class="card mb-3">
-                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                <div class="card-header bg-light-subtle d-flex justify-content-between align-items-center">
                                     <h6 class="mb-0">{{ ucfirst($group) }}</h6>
                                     <div class="form-check">
                                         <input class="form-check-input group-check-all" 
