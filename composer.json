@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "Ethio/Starter",
+    "name": "ethio starter",
     "type": "project",
     "description": "Laravel Starter Kit with 2FA, Roles & Permissions, Backup, and Settings a robust Laravel 12+ starter boilerplate",
     "keywords": ["laravel", "framework", "starter", "ethio"],
