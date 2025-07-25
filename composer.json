@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "Ethio/Starter",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel Starter Kit with 2FA, Roles & Permissions, Backup, and Settings a robust Laravel 12+ starter boilerplate",
     "keywords": ["laravel", "framework", "starter", "ethio"],
     "license": "MIT",
     "require": {
